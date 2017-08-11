@@ -30,6 +30,7 @@ defmodule Netcode.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      { :tonic, "~> 0.0.2" },
       {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:enacl, ~r/.*/, git: "https://github.com/jlouis/enacl.git", compile: "rebar compile"},
       # {:dep_from_hexpm, "~> 0.3.0"},
