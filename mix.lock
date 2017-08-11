@@ -1,4 +1,5 @@
 %{"earmark": {:hex, :earmark, "1.2.3", "206eb2e2ac1a794aa5256f3982de7a76bf4579ff91cb28d0e17ea2c9491e46a4", [], [], "hexpm"},
   "enacl": {:git, "https://github.com/jlouis/enacl.git", "61be95caadaaceae9f8d0cad7f5149ce3f44b65f", []},
   "ex_doc": {:hex, :ex_doc, "0.16.2", "3b3e210ebcd85a7c76b4e73f85c5640c011d2a0b2f06dcdf5acdb2ae904e5084", [], [{:earmark, "~> 1.1", [hex: :earmark, repo: "hexpm", optional: false]}], "hexpm"},
-  "salty": {:hex, :libsalty, "0.1.1", "55cd10cef2eaf81417c7a2668ff62de56e9c9400fb0e65baa7a0424e0c875654", [], [], "hexpm"}}
+  "salty": {:hex, :libsalty, "0.1.1", "55cd10cef2eaf81417c7a2668ff62de56e9c9400fb0e65baa7a0424e0c875654", [], [], "hexpm"},
+  "tonic": {:hex, :tonic, "0.0.2", "289cc4c7c1a74883665bf05fdbbaa5fcc3a5c5f0f7cac920d5b1a0f9c45438b8", [], [], "hexpm"}}
