@@ -4,6 +4,16 @@
 
 ## Installation
 
+Install Ubuntu 16.04 deps `sudo apt install libsodium-dev make build-essential erlang-dev`
+
+Install libsodium in Ubuntu 16.04. 
+```
+sudo apt-get install -y software-properties-common
+sudo bash -c "LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php"
+sudo apt-get update
+sudo apt-get install -y libsodium-dev
+```
+
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `netcode` to your list of dependencies in `mix.exs`:
 
