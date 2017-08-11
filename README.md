@@ -29,3 +29,6 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/netcode](https://hexdocs.pm/netcode).
 
+## Based on
+
+http://www.rokkincat.com/blog/2016/05/09/parsing-udp-in-elixir-with-binary-pattern-matching
