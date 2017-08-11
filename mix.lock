@@ -1,0 +1,2 @@
+%{"enacl": {:git, "https://github.com/jlouis/enacl.git", "61be95caadaaceae9f8d0cad7f5149ce3f44b65f", []},
+  "salty": {:hex, :libsalty, "0.1.1", "55cd10cef2eaf81417c7a2668ff62de56e9c9400fb0e65baa7a0424e0c875654", [], [], "hexpm"}}
