@@ -5,4 +5,4 @@
   "gen_state_machine": {:hex, :gen_state_machine, "2.0.0", "f3bc7d961e4cd9f37944b379137e25fd063feffc42800bed69197fd1b78b3151", [], [], "hexpm"},
   "libsodium": {:hex, :libsodium, "0.0.10", "24584e6f5a60aed53542054c15fb31719bbf2d811d9a84f626734faf64d41304", [], [], "hexpm"},
   "salty": {:hex, :libsalty, "0.1.1", "55cd10cef2eaf81417c7a2668ff62de56e9c9400fb0e65baa7a0424e0c875654", [], [], "hexpm"},
-  "tonic": {:hex, :tonic, "0.0.2", "289cc4c7c1a74883665bf05fdbbaa5fcc3a5c5f0f7cac920d5b1a0f9c45438b8", [], [], "hexpm"}}
+  "tonic": {:hex, :tonic, "0.1.0", "c76112abc95c2d290321e9fac92a20084b7d1a76f69b0cc38ba2bab61baf4335", [:mix], [], "hexpm"}}

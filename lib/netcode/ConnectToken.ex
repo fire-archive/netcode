@@ -8,9 +8,9 @@ defmodule Netcode.ConnectToken do
   uint64 :create_timestamp # 64 bit unix timestamp when this connect token was created
   uint64 :expire_timestamp # 64 bit unix timestamp when this connect token expires
   uint64 :connect_token_sequence
-  uint8 :encrypted_private_connect_token_data, 1024
+  repeat :encrypted_private_connect_token_data, 1024, :uint8
   uint32 :num_server_addresses 
-  repeat :server_address, Netcode.ConnectTokenData.verify_num_servers(get(:num_server_addresses)) do
+  repeat :server_address, get(:num_server_addresses, &Netcode.ConnectTokenData.verify_num_servers/1) do
     uint8 :address_type
     on get(:address_type) do
       # value of 1 = IPv4 address, 2 = IPv6 address.
@@ -33,11 +33,8 @@ defmodule Netcode.ConnectToken do
         uint16 :h
         uint16 :port
     end
-  end
-  uint8 :client_to_server_key, length: 32
-  uint8 :server_to_client_key, length: 32
+end
+  repeat :client_to_server_key, 32, :uint8
+  repeat :server_to_client_key, 32, :uint8
   uint32 :timeout_seconds
-  repeat :zero_pad do
-    repeat :uint8
-  end
 end
