@@ -1,11 +1,25 @@
 defmodule AeadChacha20Poly1305Ietf do
   use Benchfella
 
-  bench "libsodium aeadchacha20poly1305 ietf decrypt" do
-    :libsodium_crypto_aead_chacha20poly1305.ietf_decrypt(<<159, 176, 27, 214, 139, 57, 86, 55, 169, 141, 253, 253, 201, 85, 103, 205, 123, 111, 185>>, <<"321">>, <<185, 201, 166, 203, 130, 189, 171, 255, 243, 96, 77, 205>>, <<213, 87, 15, 192, 21, 200, 200, 142, 201, 31, 132, 120, 238, 217, 219, 154, 19, 48, 191, 229, 225, 50, 192, 52, 134, 185, 195, 78, 89, 116, 139, 242>>)
+  defp encrypt(bench_context) do
+    :libsodium_crypto_aead_chacha20poly1305.ietf_encrypt(bench_context.message, bench_context.associated_data, bench_context.nounce, bench_context.key)
+  end
+
+  before_each_bench _ do
+    data = %{nounce: :crypto.strong_rand_bytes(12),
+    key: :crypto.strong_rand_bytes(32),
+    message: <<"123">>,
+    associated_data: <<"321">>}
+    {:ok, data}
+  end
+
+  bench "libsodium aeadchacha20poly1305 ietf decrypt", [encrypted: encrypt(bench_context) ]do
+    # :ietf_decrypt(C, AD, NPub, K)
+    :libsodium_crypto_aead_chacha20poly1305.ietf_decrypt(encrypted, bench_context.associated_data, bench_context.nounce, bench_context.key)
   end
 
   bench "libsodium aeadchacha20poly1305 ietf encrypt" do
-    :libsodium_crypto_aead_chacha20poly1305.ietf_encrypt(<<"123">>, <<"321">>, <<185, 201, 166, 203, 130, 189, 171, 255, 243, 96, 77, 205>>, <<213, 87, 15, 192, 21, 200, 200, 142, 201, 31, 132, 120, 238, 217, 219, 154, 19, 48, 191, 229, 225, 50, 192, 52, 134, 185, 195, 78, 89, 116, 139, 242>>)
+    # ietf_encrypt(M, AD, NPub, K)
+    encrypt(bench_context)
   end
 end

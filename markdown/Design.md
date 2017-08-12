@@ -14,17 +14,18 @@ AD =
 NPub =
 The nonce used for encryption is a 64 bit sequence number that starts at zero and increases with each connect token generated. The sequence number is extended by padding high bits with zero to create a 96 bit nonce.
 
-K = Key (Random 32 Bytes)
+```elixir
+nounce = :crypto.strong_rand_bytes(12)
+key = :crypto.strong_rand_bytes(32)
+message = <<"123">>
+associated_data = <<"321">>
 
-:crypto.strong_rand_bytes(32)
+# ietf_encrypt(M, AD, NPub, K)
+encrypted = :libsodium_crypto_aead_chacha20poly1305.ietf_encrypt(message, associated_data, nounce, key)
 
-:libsodium_crypto_aead_chacha20poly1305.ietf_encrypt(<<"123">>, <<"321">>, <<185, 201, 166, 203, 130, 189, 171, 255, 243, 96, 77, 205>>, <<213, 87, 15, 192, 21, 200, 200, 142, 201, 31, 132, 120, 238, 217, 219, 154, 19, 48, 191, 229, 225, 50, 192, 52, 134, 185, 195, 78, 89, 116, 139, 242>>)
-
-ietf_encrypt(M, AD, NPub, K)
-
-:libsodium_crypto_aead_chacha20poly1305.ietf_decrypt(<<159, 176, 27, 214, 139, 57, 86, 55, 169, 141, 253, 253, 201, 85, 103, 205, 123, 111, 185>>, <<"321">>, <<185, 201, 166, 203, 130, 189, 171, 255, 243, 96, 77, 205>>, <<213, 87, 15, 192, 21, 200, 200, 142, 201, 31, 132, 120, 238, 217, 219, 154, 19, 48, 191, 229, 225, 50, 192, 52, 134, 185, 195, 78, 89, 116, 139, 242>>)
-
-:ietf_decrypt(C, AD, NPub, K)
+# :ietf_decrypt(C, AD, NPub, K)
+:libsodium_crypto_aead_chacha20poly1305.ietf_decrypt(encrypted, associated_data, nounce, key)
+````
 
 ## Netcode.io design
 
