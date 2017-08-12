@@ -6,8 +6,8 @@ defmodule AeadChacha20Poly1305Ietf do
   end
 
   before_each_bench _ do
-    data = %{nounce: :crypto.strong_rand_bytes(12),
-    key: :crypto.strong_rand_bytes(32),
+    data = %{nounce: :crypto.strong_rand_bytes(:libsodium_crypto_aead_chacha20poly1305.ietf_npubbytes()),
+    key: :crypto.strong_rand_bytes(:libsodium_crypto_aead_chacha20poly1305.ietf_keybytes()),
     message: <<"123">>,
     associated_data: <<"321">>}
     {:ok, data}
