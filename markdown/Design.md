@@ -12,7 +12,7 @@ AD =
 [expire timestamp] (uint64)     // 64 bit unix timestamp when this connect token expires
 
 NPub =
-The nonce used for encryption is a 64 bit sequence number that starts at zero and increases with each connect token generated. The sequence number is extended by padding high bits with zero to create a 96 bit nonce.
+The nonce used for encryption is a 64 bit sequence number that starts at zero and increases with each connect token generated. The sequence number is extended by padding high bits with zero to create a 96 bit nonce. Each nonce can only be used once.
 
 ```elixir
 nounce = :crypto.strong_rand_bytes(12)

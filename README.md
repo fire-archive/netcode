@@ -35,4 +35,4 @@ http://www.rokkincat.com/blog/2016/05/09/parsing-udp-in-elixir-with-binary-patte
 
 https://hexdocs.pm/gen_state_machine/GenStateMachine.html
 
-Thanks to discussions with icecreamcohen
+Thanks to discussions with icecreamcohen.
