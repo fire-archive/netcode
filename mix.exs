@@ -23,16 +23,18 @@ defmodule Netcode.Mixfile do
   def application do
     [
       mod: {Netcode, []},
-      extra_applications: [:logger]
+      extra_applications: [:logger, :gen_state_machine]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:benchfella, "~> 0.3.0", only: :dev},
+      {:libsodium, "~> 0.0.10"},
+      {:gen_state_machine, "~> 2.0"},
       { :tonic, "~> 0.0.2" },
       {:ex_doc, "~> 0.14", only: :dev, runtime: false},
-      {:enacl, ~r/.*/, git: "https://github.com/jlouis/enacl.git", compile: "rebar compile"},
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
