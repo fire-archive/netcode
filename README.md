@@ -1,6 +1,6 @@
 # Netcode
 
-**TODO: Add description**
+Not production ready. Does not work yet.
 
 ## Installation
 
